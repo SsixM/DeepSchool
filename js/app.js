@@ -94,11 +94,11 @@ const app = {
 
 const api = {
     async getInitData() {
-        const r = await fetch('http://127.0.0.1:5000/api/init');
+        const r = await fetch('https://genterfd4.pythonanywhere.com/api/init');
         return await r.json();
     },
     async sendAction(id, action) {
-        const r = await fetch(`http://127.0.0.1:5000/api/video/${id}/action`, {
+        const r = await fetch(`https://genterfd4.pythonanywhere.com/api/video/${id}/action`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ action })
