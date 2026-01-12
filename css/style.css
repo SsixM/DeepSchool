@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+
+:root {
+    --accent: #f43f5e;
+    --bg: #050505;
+    --surface: #121212;
+}
+
+body { 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    background-color: var(--bg);
+    overflow-x: hidden;
+}
+
+/* Плавный переход между "страницами" */
+.view-section {
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    display: none;
+}
+
+.view-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Карточки видео с эффектом всплытия */
+.video-card {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.video-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Эффект свечения для активной категории */
+.filter-chip.active {
+    box-shadow: 0 0 20px rgba(244, 63, 94, 0.3);
+    background: var(--accent) !important;
+}
+
+/* Анимация загрузки плеера */
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(244, 63, 94, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+}
+
+.player-active {
+    animation: pulse-border 2s infinite;
+}
